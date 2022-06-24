@@ -2,12 +2,14 @@
 import React, { forwardRef } from 'react'
 import styled from 'styled-components'
 import { MEDIA_WIDTHS } from '../../themes'
-import { getFontSize } from '../../utils'
+import { getFontSize } from '../../Utils'
 
 const Wrapper = styled.p`
   color: ${({ color, theme }) => theme[color]};
   font-weight: ${({ fontWeight, theme }) => theme[fontWeight] || '400'};
   font-size: ${({ fontSize }) => getFontSize(fontSize) || '20px'};
+  max-width: ${({ maxWidth }) => maxWidth || '100%'};
+  line-height: ${({ lineHeight }) => lineHeight || '22px'};
   padding: 0;
   margin: 0;
   @media screen and (max-width: ${MEDIA_WIDTHS.upToLarge}px) {
@@ -40,8 +42,10 @@ export const TextNormal = ({
   fontSize = 'size_20',
   fontWeight = 'fw400',
   color = 'text_primary',
+  maxWidth = '100%',
+  lineHeight,
   ...rest
-}) => <Wrapper color={color} fontSize={fontSize} fontWeight={fontWeight} {...rest} />
+}) => <Wrapper color={color} lineHeight={lineHeight} maxWidth={maxWidth} fontSize={fontSize} fontWeight={fontWeight} {...rest} />
 
 export const TextSocial = ({ fontSize = 'size_16', fontWeight = 'fw400', color = 'white', ...rest }) => (
   <Wrapper color={color} fontSize={fontSize} fontWeight={fontWeight} {...rest} />

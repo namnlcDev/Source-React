@@ -7,9 +7,9 @@ import styled from 'styled-components'
 import App from './App'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
-import configureStore from './store/configureStore'
+import configureStore from './Stores/configureStore'
 import ThemeProvider, { ThemedGlobalStyle } from './themes'
-import { history } from './store/reducers'
+import { history } from './Stores/reducers'
 import { ErrorBoundary } from './components'
 
 const VerticalBox = styled.div`

@@ -1,4 +1,4 @@
-import { createReducer, updateObject } from '../../store'
+import { createReducer, updateObject } from 'Stores'
 
 import {
     CHECK_NETWORK

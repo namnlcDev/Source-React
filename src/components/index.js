@@ -8,6 +8,8 @@ import BoxError from "./box-error"
 import Image from './image'
 import Header from './header'
 import { LinkIcon, LinkNormal } from './link'
+import Container from './container'
+import Footer from './footer'
 
 export {
     ErrorBoundary,
@@ -28,5 +30,7 @@ export {
     Header,
     //link
     LinkIcon,
-    LinkNormal
+    LinkNormal,
+    Container,
+    Footer
 }

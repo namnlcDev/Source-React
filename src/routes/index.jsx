@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
-import { useInjectReducer } from '../store'
+import { useInjectReducer } from 'Stores'
 import { checkNetwork } from './store/actions'
 
 import reducer from './store/reducer'
@@ -11,6 +11,7 @@ import reducer from './store/reducer'
 //screen
 import HomeScreen from '../modules/home'
 import LoadingScreen from '../modules/loading'
+import AboutScreen from '../modules/about'
 
 export default function AppRoutes({ isOnline = true }) {
     // useInjectReducer({ key: 'globalStore', reducer })
@@ -27,8 +28,14 @@ export default function AppRoutes({ isOnline = true }) {
                 component={LoadingScreen}
             />
             <PublicRoute
+                exact
                 path="/"
                 component={HomeScreen}
+            />
+            <PublicRoute
+                exact
+                path="/about-us"
+                component={AboutScreen}
             />
         </Switch>
     )

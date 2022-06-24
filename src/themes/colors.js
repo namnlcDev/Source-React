@@ -2,7 +2,7 @@ import tinycolor from 'tinycolor2'
 
 export const Colors = {
     primary: '#E67474',
-    secondary: '#19BCFE',
+    secondary: '#F9DCE1',
     thirsdary: '#373473',
     foursdary: '#05154E',
 
@@ -49,6 +49,7 @@ export const Colors = {
 
     // other colors
     black: '#1A1A1A',
+    black_text: '#292929',
     blue: '#4472C4',
     green: '#00C271',
     green_light: 'rgba(7, 207, 132, 0.1)',
@@ -67,6 +68,8 @@ export const Colors = {
     grey_disable: '#cccccc',
     white_disable: '#f5f5f5',
     transparent: 'transparent',
+    grey_text: '#545454',
+    quote_text: '#CF1436',
 
     success: '#07CF84',
     pending_color: '#FFA928',

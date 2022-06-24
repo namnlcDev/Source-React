@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { useHistory } from 'react-router-dom'
 
-import { Header, TextNormal } from '../../components'
+import { Header, TextNormal, Footer } from '../../components'
 // import { makeSelectIsOnline } from '../../routes/store/selectors'
 
 const Wrapper = styled.div`
@@ -57,7 +57,7 @@ const HomeLayout = ({ children, isFooter = true, bgImage }) => {
             <Body pathname={pathname}>
                 {children}
             </Body>
-            {/* {isFooter ? <Footer /> : ''} */}
+            {isFooter ? <Footer /> : ''}
         </Wrapper>
     )
 }

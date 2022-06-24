@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 import { TextSocial, TextNormal } from '../text'
-import { getFontSize } from '../../utils'
+import { getFontSize } from '../../Utils'
 import { MEDIA_WIDTHS } from '../../themes'
 
 export const InternalLink = styled(Link)`

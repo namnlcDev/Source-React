@@ -1,0 +1,1 @@
+export const GET_NFT_ALL = '@NFT_MANAGEMENT/GET_NFT_ALL'
