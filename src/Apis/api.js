@@ -15,7 +15,8 @@ i18next.loadNamespaces(['error_message'])
 const singletonEnforcer = Symbol()
 // const BASE_URL = `${BASE_API_URL}/api/v1`
 // const BASE_URL = `${BASE_API_URL}/api/nft/v1`
-const BASE_URL = 'https://datausa.io/api/data?drilldowns=Nation&measures=Population'
+// const BASE_URL = 'https://datausa.io/api/data?drilldowns=Nation&measures=Population'
+const BASE_URL = 'https://randomuser.me/api/?results=100&inc=name,gender,email,nat,picture&noinfo'
 
 export const MAINTENANCE = 'Maintainance'
 export const ERROR_MESSAGE_SERAKU_REGEX = /^E.*:.*/g

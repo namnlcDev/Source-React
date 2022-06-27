@@ -3,12 +3,14 @@ import { MEDIA_WIDTHS } from 'Themes'
 import { InternalLink } from '../link'
 
 export const Wrapper = styled.div`
-    height: 72px;
     width: 100%;
     background-color: ${({ theme }) => theme.primary};
     display: flex;
     align-items: center;
     justify-content: space-between;
+    .logo__company {
+        padding: 25px 32px;
+    }
     .hamburger-icon {
         display: inline-flex;
         background-color: transparent;
@@ -16,6 +18,8 @@ export const Wrapper = styled.div`
         padding: 0;
         background: ${({ theme }) => theme.quote_text};
         margin-right: 16px;
+        margin-top: 15px;
+        margin-bottom: 15px;
         @media screen and (min-width: ${MEDIA_WIDTHS.upToMedium}px) {
             display: none;
         }
@@ -65,9 +69,22 @@ export const Right = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 60%;
+    width: 100%;
     font-size: 20px;
     position: relative;
+    .partner-link {
+        position: relative;
+        &:after {
+            position: absolute;
+            content:'';
+            width: 2px;
+            height: 40px;
+            background: ${({ theme }) => theme.secondary};
+            top: 50%;
+            margin-left: 32px;
+            transform: translateY(-50%);
+        }
+    }
     a {
         padding: 25px 32px;
         color: white;

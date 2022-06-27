@@ -15,7 +15,6 @@ export const InternalLink = styled(Link)`
   color: ${({ color, theme }) => theme[color] || theme.white};
   font-size: ${({ fontSize }) => getFontSize(fontSize) || '14px'};
   font-weight: ${({ fontWeight, theme }) => theme[fontWeight] || '400'};
-  padding: 25px 32px;
   text-align: center;
   outline: 0;
   height: auto;

@@ -39,6 +39,9 @@ import SEARCH_BOTTOM from './images/search-bottom.png'
 import SEARCH_CENTER from './images/search-center.png'
 import CRYPTO_CENTER_MOBILE from './images/crypto-center-mobile.png'
 import HERO_NFTY_MOBILE from './images/hero-nfty-mobile.png'
+import SUB_LOGIN from './images/sub-login.png'
+import AVATAR_DEFAULT from './images/avatar-default.png'
+import BG_WELCOME_MOBILE from './images/bg-welcome-mobile.png'
 
 export {
     IMG_DEFAULT,
@@ -81,5 +84,8 @@ export {
     SEARCH_BOTTOM,
     SEARCH_CENTER,
     CRYPTO_CENTER_MOBILE,
-    HERO_NFTY_MOBILE
+    HERO_NFTY_MOBILE,
+    SUB_LOGIN,
+    AVATAR_DEFAULT,
+    BG_WELCOME_MOBILE
 }

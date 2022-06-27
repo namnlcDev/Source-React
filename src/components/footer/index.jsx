@@ -62,15 +62,15 @@ const Footer = () => {
         <FooterBox>
             <Container>
                 <Row align='middle' justify='space-between' className="footer">
-                    <Col span={24} xl={8} className="info">
+                    <Col span={24} md={8} xl={8} className="info">
                         <TextPrimary fontSize="size_16">
                             All rights servered
                         </TextPrimary>
                     </Col>
-                    <Col span={24} xl={8} className="logo">
+                    <Col span={24} md={8} xl={8} className="logo">
                         <LinkIcon className="logo__company" src={LOGO_FOOTER} to="/" />
                     </Col>
-                    <Col span={24} xl={8} className="link">
+                    <Col span={24} md={8} xl={8} className="link">
                         <Link to='/' className="link__page">
                             <TextPrimary fontSize="size_16">Privacy Policy</TextPrimary>
                         </Link>

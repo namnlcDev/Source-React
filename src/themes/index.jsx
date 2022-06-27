@@ -62,7 +62,7 @@ body {
   font-family: 'Inconsolata', monospace;
 
   #root {
-    overflow: hidden;
+    overflow-x: hidden;
   }
 
   .hidden-mobile {

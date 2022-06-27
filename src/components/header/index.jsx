@@ -3,6 +3,8 @@ import { Image, LinkIcon } from '../index'
 import { Wrapper, Left, Right, Link } from './styled'
 import { LOGO_COMPANY } from 'Assets'
 import { CloseOutlined } from '@ant-design/icons'
+import Login from './components/login'
+import { Row } from 'antd'
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -21,9 +23,10 @@ const Header = () => {
                 <Link className="link__page" to='/about-us'>
                     About us
                 </Link>
-                <a className="link__page" target="_blank" href='https://forms.gle/hEnruK6yARuYrMZ26'>
+                <a className="link__page partner-link" target="_blank" href='https://forms.gle/hEnruK6yARuYrMZ26'>
                     Partner with Us
                 </a>
+                <Login authenticated={false} />
             </Right>
             <button className="hamburger-icon" onClick={(e) => setIsOpen(!isOpen)}>
                 <svg width="44" height="44" viewBox="0 0 100 100">
@@ -32,7 +35,7 @@ const Header = () => {
                     <path className="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942"></path>
                 </svg>
             </button>
-        </Wrapper >
+        </Wrapper>
     )
 }
 
