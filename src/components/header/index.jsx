@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Image, LinkIcon } from '../index'
 import { Wrapper, Left, Right, Link } from './styled'
-import { LOGO_COMPANY } from '../../assets'
+import { LOGO_COMPANY } from 'Assets'
 import { CloseOutlined } from '@ant-design/icons'
 
 const Header = () => {

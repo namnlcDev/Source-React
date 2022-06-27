@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React, { forwardRef } from 'react'
 import styled from 'styled-components'
-import { MEDIA_WIDTHS } from '../../themes'
-import { getFontSize } from '../../Utils'
+import { MEDIA_WIDTHS } from 'Themes'
+import { getFontSize } from 'Utils'
 
 const Wrapper = styled.p`
   color: ${({ color, theme }) => theme[color]};

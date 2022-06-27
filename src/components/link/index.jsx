@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 import { TextSocial, TextNormal } from '../text'
 import { getFontSize } from '../../Utils'
-import { MEDIA_WIDTHS } from '../../themes'
+import { MEDIA_WIDTHS } from 'Themes'
 
 export const InternalLink = styled(Link)`
   text-decoration: none;

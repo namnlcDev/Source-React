@@ -10,6 +10,8 @@ import Header from './header'
 import { LinkIcon, LinkNormal } from './link'
 import Container from './container'
 import Footer from './footer'
+import Toast from './toast'
+import Dropdown from './dropdown'
 
 export {
     ErrorBoundary,
@@ -32,5 +34,7 @@ export {
     LinkIcon,
     LinkNormal,
     Container,
-    Footer
+    Footer,
+    Toast,
+    Dropdown
 }

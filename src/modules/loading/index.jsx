@@ -1,6 +1,6 @@
 import { Spin } from 'antd'
 import React from 'react'
-import { WrapperCenter } from '../../themes/styled'
+import { WrapperCenter } from 'Themes/styled'
 
 const LoadingScreen = () => (
     <WrapperCenter>

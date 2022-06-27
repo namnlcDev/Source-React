@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import { Route } from 'react-router-dom'
-import RequiredLogout from '../../../modules/required_logout'
+import RequiredLogout from 'Modules/required_logout'
 
 function StrictRoute({ component: Component, authenticated, ...rest }) {
   const renderComponent = ({ ...props }) => {

@@ -3,7 +3,7 @@ import { notification, Spin } from 'antd'
 import { parse, stringfiy } from 'qs'
 import styled from 'styled-components'
 
-import Approutes from './routes'
+import Approutes from './Routes'
 import { store } from '.'
 import { BrowserRouter } from 'react-router-dom'
 import 'antd/dist/antd.css'

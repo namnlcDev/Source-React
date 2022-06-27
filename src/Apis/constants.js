@@ -1,7 +1,8 @@
 const END_POINT = {
     //nft
     NFT: {
-        GET_ALL_NFT: '/test'
+        GET_ALL_NFT: '',
+
     }
 }
 

@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { useHistory } from 'react-router-dom'
 
-import { Header, TextNormal, Footer } from '../../components'
+import { Header, TextNormal, Footer } from 'Components'
 // import { makeSelectIsOnline } from '../../routes/store/selectors'
 
 const Wrapper = styled.div`

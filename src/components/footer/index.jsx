@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import Container from '../container'
 import { Image, TextPrimary, LinkIcon } from '..'
-import { MEDIA_WIDTHS } from '../../themes'
-import { LOGO_COMPANY, LOGO_FOOTER } from 'assets'
+import { MEDIA_WIDTHS } from 'Themes'
+import { LOGO_COMPANY, LOGO_FOOTER } from 'Assets'
 import { Col, Row } from 'antd'
 
 const FooterBox = styled.div`

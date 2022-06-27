@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import styled from 'styled-components'
-import { Header } from '../../components'
+import { Header } from '../../Components'
 // import Footer from '../../components/footer'
-import { MEDIA_WIDTHS } from '../../themes'
+import { MEDIA_WIDTHS } from '../../Themes'
 
 const Wrapper = styled.div`
   padding: 0;

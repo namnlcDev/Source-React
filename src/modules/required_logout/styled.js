@@ -1,6 +1,6 @@
 import { NavLink as LinkPage } from 'react-router-dom'
 import styled from 'styled-components'
-import { MEDIA_WIDTHS } from '../../themes'
+import { MEDIA_WIDTHS } from 'Themes'
 
 export const Wrapper = styled.div`
   .login__title {

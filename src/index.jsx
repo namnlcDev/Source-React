@@ -8,9 +8,9 @@ import App from './App'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import reportWebVitals from './reportWebVitals'
 import configureStore from './Stores/configureStore'
-import ThemeProvider, { ThemedGlobalStyle } from './themes'
+import ThemeProvider, { ThemedGlobalStyle } from './Themes'
 import { history } from './Stores/reducers'
-import { ErrorBoundary } from './components'
+import { ErrorBoundary } from './Components'
 
 const VerticalBox = styled.div`
   display: flex;

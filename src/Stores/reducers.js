@@ -6,7 +6,7 @@ import { combineReducers } from 'redux'
 import { connectRouter } from 'connected-react-router'
 import { createBrowserHistory } from 'history'
 
-import globalStore from '../routes/store/reducer'
+import globalStore from 'Routes/store/reducer'
 
 export const history = createBrowserHistory()
 

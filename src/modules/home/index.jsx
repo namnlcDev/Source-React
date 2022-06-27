@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Input, Space, Checkbox } from 'antd'
 import HomeLayout from '../layouts/home'
-import { LinkIcon, TextNormal, Image } from '../../components'
-import { SEARCH_ICON, WELCOME, BG_WELCOME } from '../../assets'
+import { LinkIcon, TextNormal, Image } from 'Components'
+import { SEARCH_ICON, WELCOME, BG_WELCOME } from 'Assets'
 import styled from 'styled-components'
-import { useGetNftAll } from 'hooks'
+import { useGetNftAll } from 'Hooks'
 import { useEffect } from 'react'
 
 const Wrapper = styled.div`
@@ -67,7 +67,7 @@ const HomeScreen = () => {
   } = useGetNftAll()
 
   useEffect(() => {
-    // getNftAllAction()
+    getNftAllAction({ page: 1, limit: 100 })
   }, [])
 
   const SearchBlock = () => {

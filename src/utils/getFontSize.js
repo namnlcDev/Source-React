@@ -1,4 +1,4 @@
-import { MEDIA_WIDTHS } from '../themes'
+import { MEDIA_WIDTHS } from 'Themes'
 
 export const getFontSize = (fontSize, size = null) => {
     const newFontSize = +fontSize?.replace('size_', '')

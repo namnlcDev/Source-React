@@ -1,9 +1,9 @@
 import React from 'react'
 import { Row, Col } from 'antd'
-import { TextNormal, TextPrimary, TextCategory, Container, Image } from 'components'
-import HomeLayout from 'modules/layouts/home'
+import { TextNormal, TextPrimary, TextCategory, Container, Image } from 'Components'
+import HomeLayout from 'Modules/layouts/home'
 import { WrapperArtBo, WrapperCrypto, WrapperCurrent, WrapperEco, WrapperFeature, WrapperOurPartner, WrapperSearch, WrapperWhy } from './styled'
-import { ART_BO, COVALENT, CRYPTO_CENTER, CRYPTO_CENTER_MOBILE, CURRENT_ITEM, CURRENT_RIGHT, DIFFERENCE_ITEM, DIFFERENCE_LEFT, GLOBAL, HERO_NFTY, HERO_NFTY_MOBILE, LOOKSRARE, MAIL, OPENSEA, QUOTE, SB_ART, SIMPLE, SPICY, STAR_FEATURE, STAR_YELLOW, TWITTER, X2Y2 } from 'assets'
+import { ART_BO, COVALENT, CRYPTO_CENTER, CRYPTO_CENTER_MOBILE, CURRENT_ITEM, CURRENT_RIGHT, DIFFERENCE_ITEM, DIFFERENCE_LEFT, GLOBAL, HERO_NFTY, HERO_NFTY_MOBILE, LOOKSRARE, MAIL, OPENSEA, QUOTE, SB_ART, SIMPLE, SPICY, STAR_FEATURE, STAR_YELLOW, TWITTER, X2Y2 } from 'Assets'
 
 const AboutScreen = () => {
 

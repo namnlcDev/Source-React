@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux"
 
-import saga from 'modules/home/store/saga'
-import reducer from 'modules/home/store/reducer'
+import saga from 'Modules/home/store/saga'
+import reducer from 'Modules/home/store/reducer'
 import { useInjectReducer, useInjectSaga } from "Stores"
-import { makeNft } from "modules/home/store/selectors"
-import { getNftAll } from "modules/home/store/actions"
+import { makeNft } from "Modules/home/store/selectors"
+import { getNftAll } from "Modules/home/store/actions"
 
 export const useGetNftAll = () => {
     useInjectSaga({ key: 'nftAll', saga })

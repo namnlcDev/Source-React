@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { BoxError } from '../../components'
+import { BoxError } from 'Components'
 import AuthLayout from '../layouts/auth'
 import { Wrapper, Body } from './styled'
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { MEDIA_WIDTHS } from 'themes'
+import { MEDIA_WIDTHS } from 'Themes'
 import { InternalLink } from '../link'
 
 export const Wrapper = styled.div`

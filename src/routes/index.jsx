@@ -1,4 +1,4 @@
-import { PublicRoute, PrivateRoute, StrictRoute, CustomRoute } from '../components'
+import { PublicRoute, PrivateRoute, StrictRoute, CustomRoute } from '../Components'
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Switch, Route, Redirect } from 'react-router-dom'
@@ -9,9 +9,9 @@ import { checkNetwork } from './store/actions'
 import reducer from './store/reducer'
 
 //screen
-import HomeScreen from '../modules/home'
-import LoadingScreen from '../modules/loading'
-import AboutScreen from '../modules/about'
+import HomeScreen from 'Modules/home'
+import LoadingScreen from 'Modules/loading'
+import AboutScreen from 'Modules/about'
 
 export default function AppRoutes({ isOnline = true }) {
     // useInjectReducer({ key: 'globalStore', reducer })
