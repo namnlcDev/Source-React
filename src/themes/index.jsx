@@ -83,6 +83,21 @@ body {
   @media screen and (max-width: ${MEDIA_WIDTHS.upToLarge}px) {
     background-color: ${({ theme }) => theme.white};
   }
+
+  .ant-dropdown {
+    min-width: 314px !important;
+    border: 1px solid ${({ theme }) => theme.bd_grey_dark};
+    .ant-dropdown-menu {
+      padding: 20px 16px;
+      .ant-dropdown-menu-item {
+        padding: 0;
+        &:hover {
+          background: white;
+        }
+      }
+    }
+  }
+  
   .select__dropdown {
     padding: 0;
     .ant-select-item {

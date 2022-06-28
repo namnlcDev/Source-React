@@ -42,6 +42,17 @@ import HERO_NFTY_MOBILE from './images/hero-nfty-mobile.png'
 import SUB_LOGIN from './images/sub-login.png'
 import AVATAR_DEFAULT from './images/avatar-default.png'
 import BG_WELCOME_MOBILE from './images/bg-welcome-mobile.png'
+// Image background button
+import BG_BUTTON_APPLY_UN_ACTIVE from './images/bg-btn-apply-unActive.png'
+import BG_BUTTON_APPLY_ACTIVE from './images/bg-btn-apply-active.png'
+import BG_BUTTON_RESET from './images/bg-button-reset.png'
+
+// ICON
+
+// import ICON_ARROW_DOWN from './icons/arrow-down.svg'
+// import ICON_ARROW_UP_LONG from './icons/arrow-down.svg'
+import ICON_ARROW_DOWN from './images/arrow-down.png'
+import ICON_ARROW_UP_LONG from './images/arrow-up-long.png'
 
 export {
     IMG_DEFAULT,
@@ -87,5 +98,10 @@ export {
     HERO_NFTY_MOBILE,
     SUB_LOGIN,
     AVATAR_DEFAULT,
-    BG_WELCOME_MOBILE
+    BG_WELCOME_MOBILE,
+    BG_BUTTON_APPLY_ACTIVE,
+    BG_BUTTON_APPLY_UN_ACTIVE,
+    BG_BUTTON_RESET,
+    ICON_ARROW_DOWN,
+    ICON_ARROW_UP_LONG
 }

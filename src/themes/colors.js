@@ -8,6 +8,9 @@ export const Colors = {
 
     // color for border
     bd_yellow: '#FEE58F',
+    bd_grey_low: '#DBDBDB',
+    bd_grey_dark: '#8E8E8E',
+    bd_active_red: '#CF1436',
 
     // color for background
     bg_primary: '#F7FBFF',
@@ -42,6 +45,7 @@ export const Colors = {
     secondary_btn: '#FFA928',
     fb_color: '#09519B',
     google_color: '#F14436',
+    reset_btn: '#292929',
 
     // progress
     progress_success: '#07CF84',

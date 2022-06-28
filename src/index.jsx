@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals'
 import configureStore from './Stores/configureStore'
 import ThemeProvider, { ThemedGlobalStyle } from './Themes'
 import { history } from './Stores/reducers'
-import { ErrorBoundary } from './Components'
+import { ErrorBoundary } from 'Components'
 
 const VerticalBox = styled.div`
   display: flex;

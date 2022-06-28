@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { Image, LinkIcon } from '../index'
+import { LinkIcon } from '../index'
 import { Wrapper, Left, Right, Link } from './styled'
 import { LOGO_COMPANY } from 'Assets'
 import { CloseOutlined } from '@ant-design/icons'
 import Login from './components/login'
-import { Row } from 'antd'
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false)
