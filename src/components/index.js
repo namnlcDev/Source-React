@@ -12,6 +12,9 @@ import Container from './container'
 import Footer from './footer'
 import Toast from './toast'
 import Dropdown from './dropdown'
+import Checkbox from './checkbox'
+import CheckboxGroup from './checkbox_group'
+import { ButtonImage } from './button'
 
 export {
     ErrorBoundary,
@@ -36,5 +39,12 @@ export {
     Container,
     Footer,
     Toast,
-    Dropdown
+    Dropdown,
+
+    // Checkbox
+    Checkbox,
+    CheckboxGroup,
+
+    // Button
+    ButtonImage
 }

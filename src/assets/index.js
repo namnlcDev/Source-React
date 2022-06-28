@@ -42,6 +42,9 @@ import HERO_NFTY_MOBILE from './images/hero-nfty-mobile.png'
 import SUB_LOGIN from './images/sub-login.png'
 import AVATAR_DEFAULT from './images/avatar-default.png'
 import BG_WELCOME_MOBILE from './images/bg-welcome-mobile.png'
+// Image background button
+import BG_BUTTON_APPLY from './images/bg-button-apply.png'
+import BG_BUTTON_RESET from './images/bg-button-reset.png'
 
 export {
     IMG_DEFAULT,
@@ -87,5 +90,7 @@ export {
     HERO_NFTY_MOBILE,
     SUB_LOGIN,
     AVATAR_DEFAULT,
-    BG_WELCOME_MOBILE
+    BG_WELCOME_MOBILE,
+    BG_BUTTON_APPLY,
+    BG_BUTTON_RESET
 }
