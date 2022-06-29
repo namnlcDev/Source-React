@@ -1,38 +1,42 @@
 import React, { useState } from 'react'
 import { Dropdown, Menu } from 'antd'
-import { ButtonGroup, DropdownItem, DropdownTitle, SortWrapper } from './styled'
 import { ButtonImage, Image, TextNormal } from 'Components'
-import { GET_LABEL_BY_VALUE, SORT_OPTIONS } from 'Constants'
-import { BG_BUTTON_APPLY_ACTIVE, BG_BUTTON_APPLY_UN_ACTIVE, BG_BUTTON_RESET, ICON_ARROW_DOWN, ICON_ARROW_UP_LONG } from 'Assets'
+import { GET_LABEL_BY_VALUE, SORT_KEYS, SORT_OPTIONS } from 'Constants'
+import {
+  BG_BUTTON_APPLY_ACTIVE,
+  BG_BUTTON_APPLY_UN_ACTIVE,
+  BG_BUTTON_RESET,
+  ICON_ARROW_DOWN,
+  ICON_ARROW_UP_LONG
+} from 'Assets'
+import { ButtonGroup, DropdownItem, DropdownTitle, DropdownWrapper } from '../../styled'
 
-const Sort = ({ setValue }) => {
-  const [sortValues, setSortValues] = useState([])
-  const [sortValuesActive, setSortValuesActive] = useState([])
+const Sort = ({ sorts, setValue }) => {
+  const [sortsActive, setSortsActive] = useState([])
   const [visibleDropdown, setVisibleDropdown] = useState(false)
 
   const handleSelectSort = (value) => {
     const { key } = value
-    let newSortValues = [...sortValuesActive]
+    let newSortValues = [...sortsActive]
     if (newSortValues.includes(key)) {
       const indexKey = newSortValues.findIndex((v) => v === key)
       newSortValues.splice(indexKey, 1)
-    } else if (key === 'relevance') {
+    } else if (key === SORT_KEYS.RELEVANCE) {
       newSortValues = [key]
     } else {
       newSortValues.push(key)
     }
-    setSortValuesActive(newSortValues)
+    setSortsActive(newSortValues)
   }
 
   const onApply = () => {
-    setSortValues(sortValuesActive)
     setVisibleDropdown(false)
-    setValue('sorts', sortValuesActive)
+    setValue('sorts', sortsActive)
   }
 
   const onReset = () => {
-    setSortValues([])
-    setSortValuesActive([])
+    setSortsActive([])
+    setValue('sorts', sortsActive)
   }
 
   const menus = [
@@ -47,13 +51,11 @@ const Sort = ({ setValue }) => {
         <ButtonGroup>
           <ButtonImage
             className="btn__apply"
-            imageButton={sortValuesActive.length
-              ? BG_BUTTON_APPLY_ACTIVE
-              : BG_BUTTON_APPLY_UN_ACTIVE}
+            imageButton={sortsActive.length ? BG_BUTTON_APPLY_ACTIVE : BG_BUTTON_APPLY_UN_ACTIVE}
             text="Apply"
             fontSize="size_20"
             fontWeight="fw_700"
-            onClick={sortValuesActive.length ? onApply : null}
+            onClick={sortsActive.length ? onApply : null}
           />
           <ButtonImage
             imageButton={BG_BUTTON_RESET}
@@ -79,46 +81,51 @@ const Sort = ({ setValue }) => {
             key: item.key
           }
         }
-        if (item.key === 'relevance') {
+        if (item.key === SORT_KEYS.RELEVANCE) {
           return {
-            label:
-              <DropdownItem className={`${sortValuesActive.includes(item.key) ? 'active' : ''}`}>
+            label: (
+              <DropdownItem className={`${sortsActive.includes(item.key) ? 'active' : ''}`}>
                 {item.label}
                 <img className="icon__up" src={ICON_ARROW_UP_LONG} alt="icon__up" />
-              </DropdownItem>,
+              </DropdownItem>
+            ),
             key: item.key,
             onClick: (value) => handleSelectSort(value),
-            disabled: sortValuesActive.length === 2
+            disabled: sortsActive.length === 2
           }
         }
         return {
-          label:
-            <DropdownItem className={`${sortValuesActive.includes(item.key) ? 'active' : ''}`}>
+          label: (
+            <DropdownItem className={`${sortsActive.includes(item.key) ? 'active' : ''}`}>
               {item.label}
               <img className="icon__up" src={ICON_ARROW_UP_LONG} alt="icon__up" />
-            </DropdownItem>,
+            </DropdownItem>
+          ),
           key: item.key,
           onClick: (value) => handleSelectSort(value),
-          disabled: (sortValuesActive.length === 2 && !sortValuesActive.includes(item.key)) || sortValuesActive.includes('relevance')
+          disabled:
+            (sortsActive.length === 2 && !sortsActive.includes(item.key)) ||
+            sortsActive.includes(SORT_KEYS.RELEVANCE)
         }
       })}
     />
   )
 
-  const onTouchDropdown = () => {
-    setVisibleDropdown(!visibleDropdown)
-  }
+  const onTouch = () => setVisibleDropdown(!visibleDropdown)
 
   return (
     <Dropdown overlay={menuSort} trigger={['click']} placement="bottomRight" visible={visibleDropdown}>
-      <SortWrapper onClick={onTouchDropdown}>
-        <TextNormal className="sort__text" fontSize="size_20" fontWeight="fw_400">
-          Sort: {sortValues.map((s, index) => index === 0 ? GET_LABEL_BY_VALUE[s] : `, ${GET_LABEL_BY_VALUE[s]}`)}
+      <DropdownWrapper className="sort__wrapper" onClick={onTouch}>
+        <TextNormal className="dropdown__value" fontSize="size_20" fontWeight="fw_400">
+          Sort:{' '}
+          {sorts.map((s, index) =>
+            index === 0 ? GET_LABEL_BY_VALUE[s] : `, ${GET_LABEL_BY_VALUE[s]}`
+          )}
         </TextNormal>
         <Image className="icon__down" src={ICON_ARROW_DOWN} alt="icon__down" />
-      </SortWrapper>
+      </DropdownWrapper>
     </Dropdown>
   )
 }
 
-export default React.memo(Sort)
+export default Sort

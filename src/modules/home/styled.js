@@ -20,18 +20,18 @@ export const Wrapper = styled.div`
       display: flex;
       justify-content: center;
       gap: 12px;
-      .ant-input-affix-wrapper {
-        height: 56px;
-        max-width: 640px;
-        min-width: 328px;
-        padding: 17px 20px;
-        border: 2px solid #8e8e8e;
-        .ant-input-suffix {
-          a {
-            padding: 0;
-          }
-        }
-      }
+      // .ant-input-affix-wrapper {
+      //   height: 56px;
+      //   max-width: 640px;
+      //   min-width: 328px;
+      //   padding: 17px 20px;
+      //   border: 2px solid #8e8e8e;
+      //   .ant-input-suffix {
+      //     a {
+      //       padding: 0;
+      //     }
+      //   }
+      // }
     }
   }
 

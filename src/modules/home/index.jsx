@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Input } from 'antd'
 import HomeLayout from '../layouts/home'
-import { Sort } from './components'
-import { LinkIcon, TextNormal, Container, CheckboxGroup } from 'Components'
+import { FilterBlock, Sort } from './components'
+import { TextNormal, Container, CheckboxGroup, FormInput } from 'Components'
 import { SEARCH_ICON, WELCOME } from 'Assets'
 import { useGetNftAllCollection } from 'Hooks'
 import { CheckBoxWrapper, Wrapper } from './styled'
-import { useForm } from 'react-hook-form'
+import { FormProvider, useForm } from 'react-hook-form'
 import { parseParamsToQueryString } from 'Utils'
 
 const NFT_OPTIONS = [
@@ -26,7 +25,7 @@ const HomeScreen = () => {
     defaultValues: DEFAULT_VALUE
   })
 
-  const { setValue, handleSubmit, register } = form
+  const { setValue, handleSubmit, control } = form
 
   const { isLoading, data, error, getNftAllCollectionAction } = useGetNftAllCollection()
 
@@ -36,16 +35,6 @@ const HomeScreen = () => {
 
   const onChange = (checkedValues) => {
     console.log('Boy 🚀 ~ file: index.jsx ~ line 24 ~ onChange ~ checkedValues', checkedValues)
-  }
-
-  const onSubmit = (formData) => {
-    console.log('Boy ~ file: index.jsx ~ line 47 ~ onSubmit ~ formData', formData)
-    const URL = parseParamsToQueryString(formData)
-    console.log('Boy ~ file: index.jsx ~ line 48 ~ onSubmit ~ URL', URL)
-  }
-
-  const handleOnChangeInput = (e) => {
-    setValue('queries', e.target.value)
   }
 
   const SearchBlock = () => {
@@ -59,19 +48,18 @@ const HomeScreen = () => {
                 Find a NFT Collection
               </TextNormal>
             </div>
-            <form action="">
-              <Input
-                {...register('queries')}
-                type="text"
-                placeholder="Search by keyword..."
-                suffix={<LinkIcon src={SEARCH_ICON} to="" onClick={handleSubmit(onSubmit)} />}
-                onChange={handleOnChangeInput}
-              />
-              <Sort setValue={setValue} />
-            </form>
-            <CheckBoxWrapper>
-              <CheckboxGroup options={NFT_OPTIONS} onChange={onChange} />
-            </CheckBoxWrapper>
+            <FilterBlock />
+          </div>
+        </Container>
+        <Container>
+          <div className="search-block">
+            <img src={WELCOME} alt="welcome" />
+            <div className="label">
+              <TextNormal fontSize="size_32" fontWeight="fw_700">
+                Find a NFT Collection
+              </TextNormal>
+            </div>
+            <FilterBlock />
           </div>
         </Container>
       </Wrapper>

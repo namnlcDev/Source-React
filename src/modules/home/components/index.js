@@ -1,3 +1,3 @@
-import Sort from './sort'
+import FilterBlock from './filter_block'
 
-export { Sort }
+export { FilterBlock }
