@@ -5,20 +5,18 @@ import { ButtonImage, Image, TextNormal } from 'Components'
 import { GET_LABEL_BY_VALUE, SORT_OPTIONS } from 'Constants'
 import { BG_BUTTON_APPLY_ACTIVE, BG_BUTTON_APPLY_UN_ACTIVE, BG_BUTTON_RESET, ICON_ARROW_DOWN, ICON_ARROW_UP_LONG } from 'Assets'
 
-const Sort = ({ setValue }) =>
-{
+const Sort = ({ setValue }) => {
   const [sortValues, setSortValues] = useState([])
   const [sortValuesActive, setSortValuesActive] = useState([])
   const [visibleDropdown, setVisibleDropdown] = useState(false)
 
-  const handleSelectSort = (value) =>
-  {
+  const handleSelectSort = (value) => {
     const { key } = value
     let newSortValues = [...sortValuesActive]
     if (newSortValues.includes(key)) {
       const indexKey = newSortValues.findIndex((v) => v === key)
       newSortValues.splice(indexKey, 1)
-    } else if (key === 'relevance *') {
+    } else if (key === 'relevance') {
       newSortValues = [key]
     } else {
       newSortValues.push(key)
@@ -26,15 +24,13 @@ const Sort = ({ setValue }) =>
     setSortValuesActive(newSortValues)
   }
 
-  const onApply = () =>
-  {
+  const onApply = () => {
     setSortValues(sortValuesActive)
     setVisibleDropdown(false)
     setValue('sorts', sortValuesActive)
   }
 
-  const onReset = () =>
-  {
+  const onReset = () => {
     setSortValues([])
     setSortValuesActive([])
   }
@@ -76,15 +72,14 @@ const Sort = ({ setValue }) =>
 
   const menuSort = (
     <Menu
-      items={menus.map((item) =>
-      {
+      items={menus.map((item) => {
         if (item.not_sort) {
           return {
             label: item.label,
             key: item.key
           }
         }
-        if (item.key === 'relevance *') {
+        if (item.key === 'relevance') {
           return {
             label:
               <DropdownItem className={`${sortValuesActive.includes(item.key) ? 'active' : ''}`}>
@@ -104,14 +99,13 @@ const Sort = ({ setValue }) =>
             </DropdownItem>,
           key: item.key,
           onClick: (value) => handleSelectSort(value),
-          disabled: (sortValuesActive.length === 2 && !sortValuesActive.includes(item.key)) || sortValuesActive.includes('relevance *')
+          disabled: (sortValuesActive.length === 2 && !sortValuesActive.includes(item.key)) || sortValuesActive.includes('relevance')
         }
       })}
     />
   )
 
-  const onTouchDropdown = () =>
-  {
+  const onTouchDropdown = () => {
     setVisibleDropdown(!visibleDropdown)
   }
 

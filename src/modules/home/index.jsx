@@ -4,7 +4,7 @@ import HomeLayout from '../layouts/home'
 import { Sort } from './components'
 import { LinkIcon, TextNormal, Container, CheckboxGroup } from 'Components'
 import { SEARCH_ICON, WELCOME } from 'Assets'
-import { useGetNftAll } from 'Hooks'
+import { useGetNftAllCollection } from 'Hooks'
 import { CheckBoxWrapper, Wrapper } from './styled'
 import { useForm } from 'react-hook-form'
 import { parseParamsToQueryString } from 'Utils'
@@ -28,10 +28,10 @@ const HomeScreen = () => {
 
   const { setValue, handleSubmit, register } = form
 
-  const { isLoading, data, error, getNftAllAction } = useGetNftAll()
+  const { isLoading, data, error, getNftAllCollectionAction } = useGetNftAllCollection()
 
   useEffect(() => {
-    getNftAllAction({ page: 1, limit: 100 })
+    getNftAllCollectionAction({ page: 1, limit: 100 })
   }, [])
 
   const onChange = (checkedValues) => {
@@ -61,7 +61,7 @@ const HomeScreen = () => {
             </div>
             <form action="">
               <Input
-                { ...register('queries') }
+                {...register('queries')}
                 type="text"
                 placeholder="Search by keyword..."
                 suffix={<LinkIcon src={SEARCH_ICON} to="" onClick={handleSubmit(onSubmit)} />}
