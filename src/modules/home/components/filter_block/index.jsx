@@ -1,51 +1,82 @@
 import { SEARCH_ICON } from 'Assets'
-import { CheckboxGroup, FormInput } from 'Components'
-import { NFT_OPTIONS } from 'Constants'
-import React, { useState } from 'react'
-import { FormProvider, useForm } from 'react-hook-form'
+import { FormCheckboxGroup, FormInput } from 'Components'
+import { NFT_KEYS, NFT_OPTIONS } from 'Constants'
+import React from 'react'
+import { FormProvider, useForm, useFieldArray } from 'react-hook-form'
 import { parseParamsToQueryString } from 'Utils'
 import { FilterBlockSchema } from './schema'
-import { CheckBoxWrapper } from './styled'
+import { SearchWrapper } from './styled'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Filter, Sort } from './components'
 
 const DEFAULT_VALUE = {
   queries: '',
   filters: [],
-  sorts: []
+  sorts: [],
+  nft: [NFT_KEYS.NFT_COLLECTION]
 }
 
-const FilterBlock = () => {
+const FilterBlock = () =>
+{
   const form = useForm({
     defaultValues: DEFAULT_VALUE,
     resolver: yupResolver(FilterBlockSchema())
   })
-  const { handleSubmit, setValue, watch } = form
-  const [sorts, filters] = watch(['sorts', 'filters'])
+  const { handleSubmit, setValue, watch, control } = form
+  const { fields: fieldsFilter, append: appendFilter } = useFieldArray({
+    control,
+    name: "filters"
+  })
 
-  const onSubmit = (formData) => {
-    console.log('Boy ~ file: index.jsx ~ line 47 ~ onSubmit ~ formData', formData)
-    // const URL = parseParamsToQueryString(formData)
+  const { fields: fieldsSort, append: appendSort } = useFieldArray({
+    control,
+    name: "sorts"
+  })
+
+  const [sorts, filters, nft] = watch(['sorts', 'filters', 'nft'])
+
+  const onSubmit = (formData) =>
+  {
+    const params = {
+      queries: {
+        collection_name__OR__description: formData.collection_name__OR__description
+      },
+      filters: [
+        { floor_price_quote_7d: '73.5 73.52' },
+        { volume_wei_24h: '900000' }
+      ],
+      sorts: formData.sorts
+    }
+    const queryStr = parseParamsToQueryString(params)
+    alert(queryStr)
   }
 
-  const onSelectNFT = (checkedValues) => {
-    console.log('Boy 🚀 ~ file: index.jsx ~ line 24 ~ onChange ~ checkedValues', checkedValues)
+  const onSelectNFT = (checkedValues) =>
+  {
+    console.log(' ~ file: index.jsx ~ line 24 ~ onChange ~ checkedValues', checkedValues)
   }
 
   return (
     <FormProvider {...form}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormInput
-          name="queries"
-          placeholder="Search by keyword..."
-          suffix={<img onClick={handleSubmit(onSubmit)} src={SEARCH_ICON} alt="icon-search" />}
-        />
-        <Filter filters={filters} setValue={setValue} />
-        <Sort sorts={sorts} setValue={setValue} />
+        <SearchWrapper>
+          <FormInput
+            name="collection_name__OR__description"
+            placeholder="Search by keyword..."
+            suffix={<img onClick={handleSubmit(onSubmit)} src={SEARCH_ICON} alt="icon-search" />}
+          />
+          <div className="checkbox__wrapper">
+            <FormCheckboxGroup
+              defaultValue={[NFT_KEYS.NFT_COLLECTION]}
+              name="nft"
+              options={NFT_OPTIONS}
+              onChange={onSelectNFT}
+            />
+          </div>
+        </SearchWrapper>
+        <Filter nft={nft} filters={filters} setValue={setValue} fieldsFilter={fieldsFilter} appendFilter={appendFilter} />
+        <Sort nft={nft} sorts={sorts} setValue={setValue} fieldsSort={fieldsSort} appendSort={appendSort} />
       </form>
-      <CheckBoxWrapper>
-        <CheckboxGroup options={NFT_OPTIONS} onChange={onSelectNFT} />
-      </CheckBoxWrapper>
     </FormProvider>
   )
 }

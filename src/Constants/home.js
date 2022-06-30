@@ -1,9 +1,14 @@
-export const NFT_OPTIONS = [
-  { label: 'NFT Collection', value: 'NFT Collection' },
-  { label: 'NFT Item', value: 'NFT Item' }
-]
+export const NFT_KEYS = {
+  NFT_COLLECTION: 'nft-collections',
+  NFT_ITEM: 'nfts'
+}
 
-export const FILTER_KEYS = {
+export const NFT_OPTIONS = [
+  { label: 'NFT Collection', value: NFT_KEYS.NFT_COLLECTION },
+  { label: 'NFT Item', value: NFT_KEYS.NFT_ITEM  }
+]
+// GET VALUE BY NFT COLLECTION
+export const FILTER_KEYS_NFT_COLLECT = {
   CONTRACT_DEPLOYMENT: 'contract_deployment_at',
   FLOOR_PRICE: 'floor_price_wei_24h',
   TOTAL_VOLUME: 'total_volume_wei',
@@ -12,7 +17,7 @@ export const FILTER_KEYS = {
   MARKET_CAP: 'market_cap_wei'
 }
 
-export const SORT_KEYS = {
+export const SORT_KEYS_NFT_COLLECT = {
   CONTRACT_DEPLOYMENT: '-contract_deployment_at',
   FLOOR_PRICE: 'floor_price_wei_24h',
   TOTAL_VOLUME: 'total_volume_wei',
@@ -22,66 +27,100 @@ export const SORT_KEYS = {
   RELEVANCE: 'relevance'
 }
 
-export const FILTER_OPTIONS = [
+export const FILTER_OPTIONS_NFT_COLLECT = [
   {
     label: 'Contract Deployment',
-    key: FILTER_KEYS.CONTRACT_DEPLOYMENT
+    key: FILTER_KEYS_NFT_COLLECT.CONTRACT_DEPLOYMENT
   },
   {
     label: 'Floor Prize',
-    key: FILTER_KEYS.FLOOR_PRICE
+    key: FILTER_KEYS_NFT_COLLECT.FLOOR_PRICE
   },
   {
     label: 'Total Volume',
-    key: FILTER_KEYS.TOTAL_VOLUME
+    key: FILTER_KEYS_NFT_COLLECT.TOTAL_VOLUME
   },
   {
     label: 'Volume (24h)',
-    key: FILTER_KEYS.VOLUME_24H
+    key: FILTER_KEYS_NFT_COLLECT.VOLUME_24H
   },
   {
     label: 'Exchange Volume Change (24h)',
-    key: FILTER_KEYS.EXCHANGE_VOLUME_CHANGE_24H
+    key: FILTER_KEYS_NFT_COLLECT.EXCHANGE_VOLUME_CHANGE_24H
   },
   {
     label: 'Market Cap',
-    key: FILTER_KEYS.MARKET_CAP
+    key: FILTER_KEYS_NFT_COLLECT.MARKET_CAP
   }
 ]
 
-export const SORT_OPTIONS = [
+export const SORT_OPTIONS_NFT_COLLECT = [
   {
     label: 'Contract Deployment',
-    key: SORT_KEYS.CONTRACT_DEPLOYMENT
+    key: SORT_KEYS_NFT_COLLECT.CONTRACT_DEPLOYMENT
   },
   {
     label: 'Floor Prize',
-    key: SORT_KEYS.FLOOR_PRICE
+    key: SORT_KEYS_NFT_COLLECT.FLOOR_PRICE
   },
   {
     label: 'Total Volume',
-    key: SORT_KEYS.TOTAL_VOLUME
+    key: SORT_KEYS_NFT_COLLECT.TOTAL_VOLUME
   },
   {
     label: 'Volume (24h)',
-    key: SORT_KEYS.VOLUME_24H
+    key: SORT_KEYS_NFT_COLLECT.VOLUME_24H
   },
   {
     label: 'Exchange Volume Change (24h)',
-    key: SORT_KEYS.EXCHANGE_VOLUME_CHANGE_24H
+    key: SORT_KEYS_NFT_COLLECT.EXCHANGE_VOLUME_CHANGE_24H
   },
   {
     label: 'Market Cap',
-    key: SORT_KEYS.MARKET_CAP
+    key: SORT_KEYS_NFT_COLLECT.MARKET_CAP
   },
   {
     label: 'Relevance',
-    key: SORT_KEYS.RELEVANCE
+    key: SORT_KEYS_NFT_COLLECT.RELEVANCE
+  }
+]
+
+// GET NFT BY NFT_ITEMS
+export const FILTER_KEYS_NFT_ITEM = {
+  CHAIN: 'chain',
+  COLLECTION_ID: 'collection.id'
+}
+
+export const SORT_KEYS_NFT_ITEM  = {
+  TOKEN_CREATED_DATE: 'token_created_date',
+  RELEVANCE: 'relevance'
+}
+
+export const FILTER_OPTIONS_NFT_ITEM  = [
+  {
+    label: 'Chain',
+    key: FILTER_KEYS_NFT_ITEM.CHAIN
+  },
+  {
+    label: 'Collection ID',
+    key: FILTER_KEYS_NFT_ITEM.COLLECTION_ID
+  }
+]
+
+export const SORT_OPTIONS_NFT_ITEM  = [
+  {
+    label: 'Token created date',
+    key: SORT_KEYS_NFT_ITEM.TOKEN_CREATED_DATE
+  },
+  {
+    label: 'Relevance',
+    key: SORT_KEYS_NFT_ITEM.RELEVANCE
   }
 ]
 
 export const GET_LABEL_BY_VALUE = {
   '-contract_deployment_at': 'Contract Deployment',
+  'token_created_date': 'Token created date',
   'floor_price_wei_24h': 'Floor Prize',
   'total_volume_wei': 'Total Volume',
   'volume_wei_24h': 'Volume (24h)',

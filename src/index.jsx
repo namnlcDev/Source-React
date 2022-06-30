@@ -23,6 +23,7 @@ const VerticalBox = styled.div`
 const initialState = {}
 export const store = configureStore(initialState, history)
 
+
 ReactDOM.render(
   process.env.NODE_ENV !== 'production'
     ? (

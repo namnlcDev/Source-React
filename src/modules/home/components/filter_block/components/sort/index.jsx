@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Dropdown, Menu } from 'antd'
 import { ButtonImage, Image, TextNormal } from 'Components'
-import { GET_LABEL_BY_VALUE, SORT_KEYS, SORT_OPTIONS } from 'Constants'
+import { GET_LABEL_BY_VALUE, NFT_KEYS, SORT_KEYS_NFT_COLLECT, SORT_OPTIONS_NFT_COLLECT, SORT_OPTIONS_NFT_ITEM } from 'Constants'
 import {
   BG_BUTTON_APPLY_ACTIVE,
   BG_BUTTON_APPLY_UN_ACTIVE,
@@ -11,7 +11,7 @@ import {
 } from 'Assets'
 import { ButtonGroup, DropdownItem, DropdownTitle, DropdownWrapper } from './styled'
 
-const Sort = ({ sorts, setValue }) => {
+const Sort = ({ nft, sorts, setValue, fieldsSort, appendSort }) => {
   const [sortsActive, setSortsActive] = useState([])
   const [visibleDropdown, setVisibleDropdown] = useState(false)
 
@@ -21,7 +21,7 @@ const Sort = ({ sorts, setValue }) => {
     if (newSortValues.includes(key)) {
       const indexKey = newSortValues.findIndex((v) => v === key)
       newSortValues.splice(indexKey, 1)
-    } else if (key === SORT_KEYS.RELEVANCE) {
+    } else if (key === SORT_KEYS_NFT_COLLECT.RELEVANCE) {
       newSortValues = [key]
     } else {
       newSortValues.push(key)
@@ -39,13 +39,13 @@ const Sort = ({ sorts, setValue }) => {
     setValue('sorts', sortsActive)
   }
 
-  const menus = [
+  const baseMenu = (options) => [
     {
       label: <DropdownTitle>Sort</DropdownTitle>,
       key: '0',
       not_sort: true
     },
-    ...SORT_OPTIONS,
+    ...options,
     {
       label: (
         <ButtonGroup>
@@ -72,6 +72,10 @@ const Sort = ({ sorts, setValue }) => {
     }
   ]
 
+  const menus = baseMenu(
+    nft[0] === NFT_KEYS.NFT_COLLECTION ? SORT_OPTIONS_NFT_COLLECT : SORT_OPTIONS_NFT_ITEM
+  )
+
   const menuSort = (
     <Menu
       items={menus.map((item) => {
@@ -81,12 +85,12 @@ const Sort = ({ sorts, setValue }) => {
             key: item.key
           }
         }
-        if (item.key === SORT_KEYS.RELEVANCE) {
+        if (item.key === SORT_KEYS_NFT_COLLECT.RELEVANCE) {
           return {
             label: (
               <DropdownItem className={`${sortsActive.includes(item.key) ? 'active' : ''}`}>
                 {item.label}
-                <img className="icon" src={ICON_ARROW_UP_LONG} alt="icon" />
+                <img className="icon__active" src={ICON_ARROW_UP_LONG} alt="iconActive" />
               </DropdownItem>
             ),
             key: item.key,
@@ -105,7 +109,7 @@ const Sort = ({ sorts, setValue }) => {
           onClick: (value) => handleSelectSort(value),
           disabled:
             (sortsActive.length === 2 && !sortsActive.includes(item.key)) ||
-            sortsActive.includes(SORT_KEYS.RELEVANCE)
+            sortsActive.includes(SORT_KEYS_NFT_COLLECT.RELEVANCE)
         }
       })}
     />
@@ -118,8 +122,8 @@ const Sort = ({ sorts, setValue }) => {
       <DropdownWrapper onClick={onTouch}>
         <TextNormal className="dropdown__value" fontSize="size_20" fontWeight="fw_400">
           Sort:{' '}
-          {sorts.map((s, index) =>
-            index === 0 ? GET_LABEL_BY_VALUE[s] : `, ${GET_LABEL_BY_VALUE[s]}`
+          {sorts.map((key, index) =>
+            index === 0 ? GET_LABEL_BY_VALUE[key] : `, ${GET_LABEL_BY_VALUE[key]}`
           )}
         </TextNormal>
         <Image className="icon__down" src={ICON_ARROW_DOWN} alt="icon__down" />

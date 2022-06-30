@@ -13,7 +13,6 @@ import Footer from './footer'
 import Toast from './toast'
 import Dropdown from './dropdown'
 import Checkbox from './checkbox'
-import CheckboxGroup from './checkbox_group'
 import { ButtonImage } from './button'
 export * from './form'
 
@@ -44,7 +43,6 @@ export {
 
     // Checkbox
     Checkbox,
-    CheckboxGroup,
 
     // Button
     ButtonImage

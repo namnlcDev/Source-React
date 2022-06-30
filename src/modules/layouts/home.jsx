@@ -2,7 +2,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
-import { useTranslation } from 'react-i18next'
 import { useHistory } from 'react-router-dom'
 
 import { Header, TextNormal, Footer } from 'Components'
@@ -39,7 +38,6 @@ const Network = styled.div`
   padding: 4px;
 `
 const HomeLayout = ({ children, isFooter = true, bgImage }) => {
-    const { t } = useTranslation()
     const history = useHistory()
     const { pathname } = history.location
 

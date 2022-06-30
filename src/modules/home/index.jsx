@@ -7,6 +7,7 @@ import { useGetNftAllCollection } from 'Hooks'
 import { CheckBoxWrapper, Wrapper } from './styled'
 import { FormProvider, useForm } from 'react-hook-form'
 import { parseParamsToQueryString } from 'Utils'
+import { Checkbox, Radio } from 'antd'
 
 const NFT_OPTIONS = [
   { label: 'NFT Collection', value: 'NFT Collection' },
@@ -32,11 +33,7 @@ const HomeScreen = () => {
   useEffect(() => {
     getNftAllCollectionAction({ page: 1, limit: 100 })
   }, [])
-
-  const onChange = (checkedValues) => {
-    console.log('Boy 🚀 ~ file: index.jsx ~ line 24 ~ onChange ~ checkedValues', checkedValues)
-  }
-
+  
   const SearchBlock = () => {
     return (
       <Wrapper>
@@ -56,10 +53,9 @@ const HomeScreen = () => {
             <img src={WELCOME} alt="welcome" />
             <div className="label">
               <TextNormal fontSize="size_32" fontWeight="fw_700">
-                Find a NFT Collection
+                Find a NFT Collectio
               </TextNormal>
             </div>
-            {/* <FilterBlock /> */}
           </div>
         </Container>
       </Wrapper>

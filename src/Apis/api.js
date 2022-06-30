@@ -4,13 +4,10 @@
 import axios from 'axios'
 import JSONBig from 'json-bigint'
 import { notification } from 'antd'
-import i18next from 'I18n'
 
 import { isEmpty, assign } from 'lodash'
 import { STORAGE, getLocalStorage, IGNORE_ERROR_MESSAGES } from 'Utils'
 import { store } from 'index'
-
-i18next.loadNamespaces(['error_message'])
 
 const singletonEnforcer = Symbol()
 // const BASE_URL = `${BASE_API_URL}/api/v1`
@@ -72,14 +69,14 @@ class AxiosClient {
                 store.dispatch({ type: data.error })
               } else if (data.error && data.error.match(ERROR_MESSAGE_SERAKU_REGEX)) {
                 notification.error({
-                  message: i18next.t('common:error'),
+                  message: 'common:error',
                   description: data.error,
                   duration: 2
                 })
               } else {
                 notification.error({
-                  message: i18next.t('common:error'),
-                  description: i18next.t(`error_message:${data.error}`),
+                  message: 'common:error',
+                  description: `error_message:${data.error}`,
                   duration: 2
                 })
               }

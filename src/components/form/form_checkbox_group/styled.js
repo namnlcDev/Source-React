@@ -1,5 +1,14 @@
-import { Checkbox } from 'antd'
+import { Checkbox, Form } from 'antd'
 import styled from 'styled-components'
+
+export const FormItemStyled = styled(Form.Item)`
+  margin-bottom: 0;
+`
+
+export const WrapperLabel = styled.div`
+  width: 100%;
+  font-size: 13px;
+`
 
 export const CheckboxGroupStyled = styled(Checkbox.Group)`
   .ant-checkbox-wrapper {

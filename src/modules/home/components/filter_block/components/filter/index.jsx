@@ -1,51 +1,38 @@
 import React, { useState } from 'react'
-import { Collapse, Dropdown, Menu, Slider } from 'antd'
+import { Dropdown, Menu, Slider } from 'antd'
 import { ButtonImage, Image, TextNormal } from 'Components'
-import { FILTER_KEYS, FILTER_OPTIONS, GET_LABEL_BY_VALUE, SORT_KEYS } from 'Constants'
+import {
+  FILTER_OPTIONS_NFT_COLLECT,
+  FILTER_OPTIONS_NFT_ITEM,
+  GET_LABEL_BY_VALUE,
+  NFT_KEYS
+} from 'Constants'
 import { BG_BUTTON_APPLY_ACTIVE, BG_BUTTON_APPLY_UN_ACTIVE, BG_BUTTON_RESET, ICON_ARROW_DOWN } from 'Assets'
 import { ButtonGroup, CollapseStyled, DropdownTitle, DropdownWrapper } from './styled'
 
 const { Panel } = CollapseStyled
 
-const Filter = ({ filters, setValue }) =>
-{
+const Filter = ({ nft, filters, setValue }) => {
   const [filtersActive, setFiltersActive] = useState([])
   const [visibleDropdown, setVisibleDropdown] = useState(false)
 
-  const handleSelectSort = (value) =>
-  {
-    const { key } = value
-    let newSortValues = [...filtersActive]
-    if (newSortValues.includes(key)) {
-      const indexKey = newSortValues.findIndex((v) => v === key)
-      newSortValues.splice(indexKey, 1)
-    } else if (key === SORT_KEYS.RELEVANCE) {
-      newSortValues = [key]
-    } else {
-      newSortValues.push(key)
-    }
-    setFiltersActive(newSortValues)
-  }
-
-  const onApply = () =>
-  {
+  const onApply = () => {
     setVisibleDropdown(false)
     setValue('filters', filtersActive)
   }
 
-  const onReset = () =>
-  {
+  const onReset = () => {
     setFiltersActive([])
     setValue('filters', filtersActive)
   }
 
-  const menus = [
+  const baseMenu = (options) => [
     {
       label: <DropdownTitle>Filter</DropdownTitle>,
       key: '0',
       not_filter: true
     },
-    ...FILTER_OPTIONS,
+    ...options,
     {
       label: (
         <ButtonGroup>
@@ -72,11 +59,14 @@ const Filter = ({ filters, setValue }) =>
     }
   ]
 
+  const menus = baseMenu(
+    nft[0] === NFT_KEYS.NFT_COLLECTION ? FILTER_OPTIONS_NFT_COLLECT : FILTER_OPTIONS_NFT_ITEM
+  )
+
   const menuFilter = (
     <Menu
       triggerSubMenuAction="click"
-      items={menus.map((item, index) =>
-      {
+      items={menus.map((item, index) => {
         if (item.not_filter) {
           return {
             label: item.label,
@@ -87,7 +77,14 @@ const Filter = ({ filters, setValue }) =>
           label: (
             <CollapseStyled
               onChange={(key) => console.log(key)}
-              expandIcon={({ isActive }) => <img style={{ transform: isActive && 'rotate(180deg)' }} className="icon__expand" src={ICON_ARROW_DOWN} alt="icon" />}
+              expandIcon={({ isActive }) => (
+                <img
+                  style={{ transform: isActive && 'rotate(180deg)' }}
+                  className="icon__expand"
+                  src={ICON_ARROW_DOWN}
+                  alt="icon"
+                />
+              )}
               ghost
             >
               <Panel header={item.label} key="1">
