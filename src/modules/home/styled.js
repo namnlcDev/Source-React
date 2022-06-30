@@ -8,6 +8,7 @@ export const Wrapper = styled.div`
   background: url(${BG_WELCOME}) center center no-repeat, linear-gradient(0deg, #e9a4a4 -14.33%, #90ddfd 100%);
   background-size: cover;
   width: 100%;
+
   .search-block {
     margin-top: 306px;
 
@@ -20,18 +21,6 @@ export const Wrapper = styled.div`
       display: flex;
       justify-content: center;
       gap: 12px;
-      // .ant-input-affix-wrapper {
-      //   height: 56px;
-      //   max-width: 640px;
-      //   min-width: 328px;
-      //   padding: 17px 20px;
-      //   border: 2px solid #8e8e8e;
-      //   .ant-input-suffix {
-      //     a {
-      //       padding: 0;
-      //     }
-      //   }
-      // }
     }
   }
 

@@ -59,7 +59,7 @@ const HomeScreen = () => {
                 Find a NFT Collection
               </TextNormal>
             </div>
-            <FilterBlock />
+            {/* <FilterBlock /> */}
           </div>
         </Container>
       </Wrapper>
