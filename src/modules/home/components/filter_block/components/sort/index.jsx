@@ -9,7 +9,7 @@ import {
   ICON_ARROW_DOWN,
   ICON_ARROW_UP_LONG
 } from 'Assets'
-import { ButtonGroup, DropdownItem, DropdownTitle, DropdownWrapper } from '../../styled'
+import { ButtonGroup, DropdownItem, DropdownTitle, DropdownWrapper } from './styled'
 
 const Sort = ({ sorts, setValue }) => {
   const [sortsActive, setSortsActive] = useState([])
@@ -86,7 +86,7 @@ const Sort = ({ sorts, setValue }) => {
             label: (
               <DropdownItem className={`${sortsActive.includes(item.key) ? 'active' : ''}`}>
                 {item.label}
-                <img className="icon__up" src={ICON_ARROW_UP_LONG} alt="icon__up" />
+                <img className="icon" src={ICON_ARROW_UP_LONG} alt="icon" />
               </DropdownItem>
             ),
             key: item.key,
@@ -98,7 +98,7 @@ const Sort = ({ sorts, setValue }) => {
           label: (
             <DropdownItem className={`${sortsActive.includes(item.key) ? 'active' : ''}`}>
               {item.label}
-              <img className="icon__up" src={ICON_ARROW_UP_LONG} alt="icon__up" />
+              <img className="icon__active" src={ICON_ARROW_UP_LONG} alt="iconActive" />
             </DropdownItem>
           ),
           key: item.key,
@@ -115,7 +115,7 @@ const Sort = ({ sorts, setValue }) => {
 
   return (
     <Dropdown overlay={menuSort} trigger={['click']} placement="bottomRight" visible={visibleDropdown}>
-      <DropdownWrapper className="sort__wrapper" onClick={onTouch}>
+      <DropdownWrapper onClick={onTouch}>
         <TextNormal className="dropdown__value" fontSize="size_20" fontWeight="fw_400">
           Sort:{' '}
           {sorts.map((s, index) =>

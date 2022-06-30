@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
-import { Dropdown, Menu, Slider } from 'antd'
+import { Collapse, Dropdown, Menu, Slider } from 'antd'
 import { ButtonImage, Image, TextNormal } from 'Components'
 import { FILTER_KEYS, FILTER_OPTIONS, GET_LABEL_BY_VALUE, SORT_KEYS } from 'Constants'
 import { BG_BUTTON_APPLY_ACTIVE, BG_BUTTON_APPLY_UN_ACTIVE, BG_BUTTON_RESET, ICON_ARROW_DOWN } from 'Assets'
-import { ButtonGroup, DropdownItem, DropdownTitle, DropdownWrapper } from '../../styled'
+import { ButtonGroup, CollapseStyled, DropdownTitle, DropdownWrapper } from './styled'
 
-const Filter = ({ filters, setValue }) => {
+const { Panel } = CollapseStyled
+
+const Filter = ({ filters, setValue }) =>
+{
   const [filtersActive, setFiltersActive] = useState([])
   const [visibleDropdown, setVisibleDropdown] = useState(false)
 
-  const handleSelectSort = (value) => {
+  const handleSelectSort = (value) =>
+  {
     const { key } = value
     let newSortValues = [...filtersActive]
     if (newSortValues.includes(key)) {
@@ -23,12 +27,14 @@ const Filter = ({ filters, setValue }) => {
     setFiltersActive(newSortValues)
   }
 
-  const onApply = () => {
+  const onApply = () =>
+  {
     setVisibleDropdown(false)
     setValue('filters', filtersActive)
   }
 
-  const onReset = () => {
+  const onReset = () =>
+  {
     setFiltersActive([])
     setValue('filters', filtersActive)
   }
@@ -66,16 +72,11 @@ const Filter = ({ filters, setValue }) => {
     }
   ]
 
-  const [current, setCurrent] = useState(FILTER_KEYS.CONTRACT_DEPLOYMENT)
-  const onClick = (e) => {
-    console.log('click ', e)
-    setCurrent(e.key)
-  }
-
   const menuFilter = (
     <Menu
       triggerSubMenuAction="click"
-      items={menus.map((item, index) => {
+      items={menus.map((item, index) =>
+      {
         if (item.not_filter) {
           return {
             label: item.label,
@@ -84,18 +85,17 @@ const Filter = ({ filters, setValue }) => {
         }
         return {
           label: (
-            <DropdownItem className={`${filtersActive.includes(item.key) ? 'active' : ''}`}>
-              {item.label}
-              <img className="icon__up filter" src={ICON_ARROW_DOWN} alt="icon__up" />
-            </DropdownItem>
+            <CollapseStyled
+              onChange={(key) => console.log(key)}
+              expandIcon={({ isActive }) => <img style={{ transform: isActive && 'rotate(180deg)' }} className="icon__expand" src={ICON_ARROW_DOWN} alt="icon" />}
+              ghost
+            >
+              <Panel header={item.label} key="1">
+                <Slider min={0} max={100} />
+              </Panel>
+            </CollapseStyled>
           ),
-          key: item.key,
-          children: [
-            {
-              key: index,
-              label: <Slider range defaultValue={[0, 50]} />
-            }
-          ]
+          key: item.key
         }
       })}
     />
@@ -106,7 +106,7 @@ const Filter = ({ filters, setValue }) => {
   return (
     <>
       <Dropdown overlay={menuFilter} trigger={['click']} placement="bottomRight" visible={visibleDropdown}>
-        <DropdownWrapper className="filter__wrapper" onClick={onTouch}>
+        <DropdownWrapper onClick={onTouch}>
           <TextNormal className="dropdown__value" fontSize="size_20" fontWeight="fw_400">
             Filter:{' '}
             {filters.map((s, index) => (index === 0 ? GET_LABEL_BY_VALUE[s] : `, ${GET_LABEL_BY_VALUE[s]}`))}

@@ -1,28 +1,16 @@
-import styled from 'styled-components'
-
-export const CheckBoxWrapper = styled.div`
-  max-width: 640px;
-  text-align: left;
-  margin: 25px auto 0 auto;
-`
+import { Collapse } from "antd"
+import styled from "styled-components"
 
 export const DropdownWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 122px;
   height: 56px;
   background: white;
   padding: 0 16px;
   border: 2px solid ${({ theme }) => theme.bd_grey_low};
   cursor: pointer;
-
-  &.filter__wrapper {
-    width: 122px;
-  }
-
-  &.sort__wrapper {
-    width: 228px;
-  }
 
   &.ant-dropdown-open {
     border-color: ${({ theme }) => theme.bd_active_red};
@@ -42,6 +30,28 @@ export const DropdownTitle = styled.div`
   display: flex;
   font-size: 26px;
   font-weight: 700;
+`
+
+export const CollapseStyled = styled(Collapse)`
+  display: flex;
+  font-size: 16px;
+  // padding: 16px 0;
+  border-bottom: 1px solid ${({ theme }) => theme.bd_grey_low};
+  position: relative;
+
+  .ant-collapse-item {
+    width: 100%;
+    .ant-collapse-header {
+      padding: 16px 0;
+      .ant-collapse-expand-icon {
+        position: absolute;
+        right: 0;
+        .ant-collapse-arrow {
+          margin-right: 0;
+        }
+      }
+    }
+  }
 `
 
 export const DropdownItem = styled.div`
