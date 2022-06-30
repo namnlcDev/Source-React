@@ -25,6 +25,6 @@ export const SORT_OPTIONS = [
   },
   {
     label: 'Relevance',
-    key: 'relevance *'
+    key: 'relevance'
   }
 ]

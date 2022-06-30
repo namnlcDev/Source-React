@@ -1,21 +1,34 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-export const SortWrapper = styled.div`
+export const CheckBoxWrapper = styled.div`
+  max-width: 640px;
+  text-align: left;
+  margin: 25px auto 0 auto;
+`
+
+export const DropdownWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 228px;
   height: 56px;
   background: white;
   padding: 0 16px;
   border: 2px solid ${({ theme }) => theme.bd_grey_low};
   cursor: pointer;
 
+  &.filter__wrapper {
+    width: 122px;
+  }
+
+  &.sort__wrapper {
+    width: 228px;
+  }
+
   &.ant-dropdown-open {
     border-color: ${({ theme }) => theme.bd_active_red};
   }
 
-  .sort__text {
+  .dropdown__value {
     width: 80%;
     text-align: left;
     overflow: hidden;
@@ -43,6 +56,9 @@ export const DropdownItem = styled.div`
     position: absolute;
     right: 0;
     display: none;
+    &.filter {
+      display: block;
+    }
   }
 
   &.active {

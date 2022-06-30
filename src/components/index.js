@@ -15,6 +15,7 @@ import Dropdown from './dropdown'
 import Checkbox from './checkbox'
 import CheckboxGroup from './checkbox_group'
 import { ButtonImage } from './button'
+export * from './form'
 
 export {
     ErrorBoundary,

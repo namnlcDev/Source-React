@@ -1,10 +1,22 @@
 import { createSelector } from "reselect"
 import { initialState } from "./reducer"
 
-const selectNft = (state) => state.nftAll || initialState
+const selectNft = (state) => state.nft || initialState
 
-const makeNft = () => (
-    createSelector(selectNft, (state) => state)
+const makeNftCollection = () => (
+    createSelector(selectNft, (state) => state.nftAllCollection)
 )
 
-export { makeNft, selectNft }
+const makeNftItem = () => (
+    createSelector(selectNft, (state) => state.nftAllItem)
+)
+
+const makeNftItemDetail = () => (
+    createSelector(selectNft, (state) => state.nftItemDetail)
+)
+
+const makeNftCollectionDetail = () => (
+    createSelector(selectNft, (state) => state.nftCollectionDetail)
+)
+
+export { selectNft, makeNftItem, makeNftCollection, makeNftItemDetail, makeNftCollectionDetail }
