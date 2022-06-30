@@ -51,7 +51,7 @@ const HomeScreen = () => {
             <FilterBlock />
           </div>
         </Container>
-        <Container>
+        {/* <Container>
           <div className="search-block">
             <img src={WELCOME} alt="welcome" />
             <div className="label">
@@ -59,9 +59,9 @@ const HomeScreen = () => {
                 Find a NFT Collection
               </TextNormal>
             </div>
-            {/* <FilterBlock /> */}
+            <FilterBlock />
           </div>
-        </Container>
+        </Container> */}
       </Wrapper>
     )
   }
